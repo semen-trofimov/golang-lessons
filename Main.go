@@ -7,19 +7,19 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", helloWorld)
+	http.HandleFunc("/", helloworld)
 	e := http.ListenAndServe(":9090", nil)
 	if e != nil {
 		fmt.Println(e.Error())
 	}
 }
 
-func helloWorld(w http.ResponseWriter, r *http.Request) {
-	str := "helloWorld"
+func helloworld(w http.ResponseWriter, r *http.Request) {
+	str := "hello"
 	n, e := io.WriteString(w, str)
 	if e != nil {
 		fmt.Println(e.Error())
 	} else {
-		fmt.Println(n, " ", len(str))
+		fmt.Println(n, "", len(str))
 	}
 }
