@@ -4,9 +4,9 @@ FROM golang:latest as builder
 WORKDIR /app
 
 
-# COPY go.mod go.sum ./
+COPY go.mod go.sum ./
 
-# RUN go mod download
+RUN go mod download
 
 COPY . .
 
@@ -21,6 +21,6 @@ WORKDIR /root/
 
 COPY --from=builder /app/main .
 
-EXPOSE 9090
+EXPOSE 8000
 
 CMD ["./main"] 
